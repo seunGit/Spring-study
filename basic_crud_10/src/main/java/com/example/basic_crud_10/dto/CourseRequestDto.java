@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class CourseRequestDto {
-    private String title;
+    private String title;       // 받아주는 부분 설정
     private String instructor;
     private Double cost;
 }

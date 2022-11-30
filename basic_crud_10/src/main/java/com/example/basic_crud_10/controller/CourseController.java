@@ -8,16 +8,16 @@ import com.example.basic_crud_10.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api")
-@RequiredArgsConstructor
+@RestController                      // json 타입으로 받음, 한번에 받을수 있음
+@RequestMapping("/api")             // 공통적인 부분 맵핑
+@RequiredArgsConstructor                // 서비스 연결
 public class CourseController {
 
-    private final CourseService courseService;
+    private final CourseService courseService; // 연결준비
 
-    @PostMapping("/save/course")
-    public ResponseDto saveCourse(@RequestBody CourseRequestDto requestDto) {
-            return courseService.saveCourse(requestDto);
+    @PostMapping("/save/board")        // 강의 추가, 포스트맵핑, 경로지정
+    public ResponseDto saveCourse(@RequestBody CourseRequestDto requestDto) { //객체로 받아올수있는 기능. 바디 안에서 가져와야 함. 받아줄수 있는 객체를 만듬,
+        return courseService.saveCourse(requestDto);
     }
 
     @GetMapping("/get/courses")

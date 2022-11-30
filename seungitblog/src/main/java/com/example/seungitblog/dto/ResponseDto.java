@@ -8,11 +8,12 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 public class ResponseDto {
-    private LocalDateTime createAt;
-    private LocalDateTime modifiedAt;
-    private String id;
-    private String title;
-    private String content;
-    private String msg;
 
+    private String msg;
+    private int statusCode;
+
+    public ResponseDto(String msg, int statusCode) {
+        this.msg = msg;
+        this.statusCode = statusCode;
+    }
 }
