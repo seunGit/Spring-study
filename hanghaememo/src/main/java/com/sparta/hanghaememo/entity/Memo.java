@@ -1,6 +1,4 @@
 package com.sparta.hanghaememo.entity;
-
-// import com.sparta.hanghaememo.dto.MemoRequestDto;
 import com.sparta.hanghaememo.dto.MemoRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
