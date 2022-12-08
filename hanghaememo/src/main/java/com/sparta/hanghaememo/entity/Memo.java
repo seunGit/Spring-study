@@ -1,31 +1,42 @@
 package com.sparta.hanghaememo.entity;
+
 import com.sparta.hanghaememo.dto.MemoRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Getter
 @Entity
 @NoArgsConstructor
 public class Memo extends Timestamped {
+    //메모 아이디
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  // pk값을 가지는 필드값 3개를 가지고 있다.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
+    private String contents;
+    //유저 아이디
+    @Column(nullable = false)
+    private Long userId;
 
     @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false)
-    private String contents;
 
-    public Memo(MemoRequestDto requestDto) {
-        this.username = requestDto.getUsername();
+    public Memo(MemoRequestDto requestDto, Long id, String username) {
         this.contents = requestDto.getContents();
+        this.title = requestDto.getTitle();
+        this.userId = id;
+        this.username = username;
     }
 
     public void update(MemoRequestDto requestDto) {
-        this.username = requestDto.getUsername();
         this.contents = requestDto.getContents();
+        this.title = requestDto.getTitle();
     }
+
 }

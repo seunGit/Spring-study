@@ -1,11 +1,7 @@
-package com.example.blog.dto;
-
+package com.example.boardprac.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -16,6 +12,5 @@ public class ResponseDto {
     public ResponseDto(String msg, int statusCode) {
         this.msg = msg;
         this.statusCode = statusCode;
-
     }
 }

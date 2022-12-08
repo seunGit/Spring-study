@@ -5,8 +5,14 @@ import com.sparta.hanghaememo.entity.Memo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface MemoRepository extends JpaRepository<Memo, Long> { // 데이터베이스 연결
-
+public interface MemoRepository extends JpaRepository<Memo, Long> {
     List<Memo> findAllByOrderByModifiedAtDesc();
+
+    List<Memo> findAllByUserId(Long userId);
+
+    Optional<Memo> findByIdAndUserId(Long id, Long userId);
+
+
 }

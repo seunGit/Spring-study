@@ -14,7 +14,6 @@ import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,8 +78,6 @@ public class ProductService {
 
             // 사용자 권한 가져와서 ADMIN 이면 전체 조회, USER 면 본인이 추가한 부분 조회
             UserRoleEnum userRoleEnum = user.getRole();
-            System.out.println("role = " + userRoleEnum);
-
             List<ProductResponseDto> list = new ArrayList<>();
             List<Product> productList;
 
