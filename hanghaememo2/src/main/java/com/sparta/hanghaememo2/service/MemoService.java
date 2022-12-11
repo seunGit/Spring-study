@@ -17,30 +17,29 @@ public class MemoService {
     private final MemoRepository memoRepository;
 
     @Transactional
-    public Memo createMemo(MemoRequestDto requestDto) {
-        Memo memo = new Memo(requestDto);
+    public Memo createMemo(MemoRequestDto memoRequestDto) {
+        Memo memo = new Memo(memoRequestDto);
         memoRepository.save(memo);
         return memo;
     }
 
-    @Transactional(readOnly = true)
-    public List<Memo> getMemos() {
+    @Transactional(readOnly = true) // 읽기 특화
+    public List<Memo> listMemo() {
         return memoRepository.findAllByOrderByModifiedAtDesc();
     }
 
     @Transactional
-    public Long update(Long id, MemoRequestDto requestDto) {
+    public Long updateMemo(Long id, MemoRequestDto memoRequestDto) {
         Memo memo = memoRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("아이디가 존재하지 않습니다.")
+                () -> new IllegalArgumentException("바보")
         );
-        memo.update(requestDto);
+        memo.updateMemo(memoRequestDto);
         return memo.getId();
     }
 
     @Transactional
-    public Long deleteMemo(Long id) {
+    public Long delMemo(Long id) {
         memoRepository.deleteById(id);
         return id;
     }
-
 }

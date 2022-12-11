@@ -21,20 +21,14 @@ public class Memo extends Timestamped {
     @Column(nullable = false)
     private String contents;
 
-    public Memo(String username, String contents) {
-        this.username = username;
-        this.contents = contents;
-    }
 
-    public Memo(MemoRequestDto requestDto) {
-        this.username = requestDto.getUsername();
-        this.contents = requestDto.getContents();
-    }
-
-    public void update(MemoRequestDto memoRequestDto) {
+    public Memo(MemoRequestDto memoRequestDto) {
         this.username = memoRequestDto.getUsername();
         this.contents = memoRequestDto.getContents();
     }
 
-
+    public void updateMemo(MemoRequestDto memoRequestDto) {
+        this.username = memoRequestDto.getUsername();
+        this.contents = memoRequestDto.getContents();
+    }
 }
